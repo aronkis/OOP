@@ -1,0 +1,6 @@
+public class Caiet extends Rechizita {
+    public Caiet(String eticheta) { super(eticheta); }    
+
+    public String getNume() { return eticheta_ + "Caiet"; }
+    
+}
