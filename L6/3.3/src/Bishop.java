@@ -1,27 +1,23 @@
-public class Bishop extends ChessPiece
+public class Bishop extends ChessPiece 
 {
 
-    public Bishop(String pieceName, int coordX, int coordY)
+    public Bishop(String pieceName, int coordX, int coordY) 
     {
         super(pieceName, coordX, coordY);
     }
 
-    public boolean MovePiece(int newCoordX, int newCoordY, ChessPiece[][] board)
+    public boolean MovePiece(int newCoordX, int newCoordY, ChessPiece[][] board) 
     {
-        if (Math.abs(newCoordX - coordX_) == Math.abs(newCoordY - coordY_))
+        if (Math.abs(newCoordX - coordX_) == Math.abs(newCoordY - coordY_)) 
         {
             int dx = (newCoordX > coordX_) ? 1 : -1;
             int dy = (newCoordY > coordY_) ? 1 : -1;
-            int x = coordX_ + dx;
-            int y = coordY_ + dy;
-            while (x != newCoordX && y != newCoordY)
+            for (int x = coordX_ + dx, y = coordY_ + dy; x != newCoordX && y != newCoordY; x += dx, y += dy) 
             {
-                if (board[x][y] != null)
+                if (board[x][y] != null) 
                 {
                     return false;
                 }
-                x += dx;
-                y += dy;
             }
             SetCoordinates(newCoordX, newCoordY);
             return true;
